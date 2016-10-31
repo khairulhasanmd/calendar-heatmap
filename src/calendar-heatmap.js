@@ -67,7 +67,7 @@ function calendarHeatmap() {
     d3.select(chart.selector()).selectAll('svg.calendar-heatmap').remove(); // remove the existing chart, if it exists
 
     var dateRange = d3.time.days(yearAgo, now); // generates an array of date objects within the specified range
-    var monthRange = d3.time.months(moment(yearAgo).startOf('month').toDate(), now); // it ignores the first month if the 1st date is after the start of the month
+    var monthRange = d3.time.months(moment(yearAgo).startOf('month' +1 ).toDate(), now); // it ignores the first month if the 1st date is after the start of the month
     var firstDate = moment(dateRange[0]);
     var max = d3.max(chart.data(), function (d) { return d.count; }); // max data value
 
